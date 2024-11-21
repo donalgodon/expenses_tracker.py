@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>hpi.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+hpi.py</font>
+</center></td></tr></table>
+<pre><span class="s0">def </span><span class="s1">expense_tracker(expenses</span><span class="s0">, </span><span class="s1">budget</span><span class="s0">, </span><span class="s1">limit):</span>
+    <span class="s1">total_expenses = sum(amount </span><span class="s0">for </span><span class="s1">_</span><span class="s0">, </span><span class="s1">amount </span><span class="s0">in </span><span class="s1">expenses)</span>
+    <span class="s1">average_expense = total_expenses / len(expenses) </span><span class="s0">if </span><span class="s1">expenses </span><span class="s0">else </span><span class="s2">0</span>
+    <span class="s1">max_expense = max(expenses</span><span class="s0">, </span><span class="s1">key=</span><span class="s0">lambda </span><span class="s1">x: x[</span><span class="s2">1</span><span class="s1">])[</span><span class="s2">1</span><span class="s1">] </span><span class="s0">if </span><span class="s1">expenses </span><span class="s0">else </span><span class="s2">0</span>
+
+    <span class="s1">alert_message = </span><span class="s3">f&quot;Alert! You have exceeded the spending limit of </span><span class="s0">{</span><span class="s1">limit</span><span class="s0">}</span><span class="s3">.&quot; </span><span class="s0">if </span><span class="s1">total_expenses &gt; limit </span><span class="s0">else </span><span class="s3">&quot;Within the limit.&quot;</span>
+    <span class="s1">recommendation = </span><span class="s3">f&quot;You exceeded your budget by </span><span class="s0">{</span><span class="s1">total_expenses - budget</span><span class="s0">}</span><span class="s3">.&quot; </span><span class="s0">if </span><span class="s1">total_expenses &gt; budget </span><span class="s0">else </span><span class="s3">&quot;Within the budget.&quot;</span>
+
+    <span class="s0">return </span><span class="s1">{</span>
+        <span class="s3">&quot;Total&quot;</span><span class="s1">: total_expenses</span><span class="s0">,</span>
+        <span class="s3">&quot;Average&quot;</span><span class="s1">: average_expense</span><span class="s0">,</span>
+        <span class="s3">&quot;Maximum&quot;</span><span class="s1">: max_expense</span><span class="s0">,</span>
+        <span class="s3">&quot;Alert&quot;</span><span class="s1">: alert_message</span><span class="s0">,</span>
+        <span class="s3">&quot;Recommendation&quot;</span><span class="s1">: recommendation</span>
+    <span class="s1">}</span>
+
+<span class="s4"># Example usage</span>
+<span class="s1">expenses_list = [(</span><span class="s3">&quot;Food&quot;</span><span class="s0">, </span><span class="s2">50</span><span class="s1">)</span><span class="s0">, </span><span class="s1">(</span><span class="s3">&quot;Transport&quot;</span><span class="s0">, </span><span class="s2">20</span><span class="s1">)</span><span class="s0">, </span><span class="s1">(</span><span class="s3">&quot;Entertainment&quot;</span><span class="s0">, </span><span class="s2">30</span><span class="s1">)]</span>
+<span class="s1">budget = </span><span class="s2">100</span>
+<span class="s1">limit = </span><span class="s2">80</span>
+
+<span class="s1">result = expense_tracker(expenses_list</span><span class="s0">, </span><span class="s1">budget</span><span class="s0">, </span><span class="s1">limit)</span>
+<span class="s0">for </span><span class="s1">key</span><span class="s0">, </span><span class="s1">value </span><span class="s0">in </span><span class="s1">result.items():</span>
+    <span class="s1">print(</span><span class="s3">f&quot;</span><span class="s0">{</span><span class="s1">key</span><span class="s0">}</span><span class="s3">: </span><span class="s0">{</span><span class="s1">value</span><span class="s0">}</span><span class="s3">&quot;</span><span class="s1">)</span></pre>
+</body>
+</html>
